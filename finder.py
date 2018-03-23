@@ -13,7 +13,15 @@ import requests
 from PyQt4 import QtGui
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
+import argparse
 
+parser =argparse.ArgumentParser()
+
+parser.add_argument('--google_api_key', type=str, help='https://developers.google.com/console')
+parser.add_argument('--here_app_id', type=str, help='https://developer.here.com/documentation/geocoder/topics/quick-start.html')
+parser.add_argument('--here_app_code', type=str, help='https://developer.here.com/documentation/geocoder/topics/quick-start.html')
+
+args = parser.parse_args()
 
 class Lat_Lng_finder(QtGui.QWidget):
 
@@ -180,9 +188,9 @@ class Lat_Lng_finder(QtGui.QWidget):
 
         goolge_map = 'https://maps.googleapis.com/maps/api/geocode/json'
         here_map = 'https://geocoder.cit.api.here.com/6.2/geocode.json'
-        here_app_id = 'fASCdiz6d4sPY4ZnkFiP'
-        here_app_code = 'kXUQbL9aObeXLvuKmQFdpQ'
-        google_api_key = 'AIzaSyDcR93iCNw63tuUNFH0WfXMkBBRhY3C0Zs'
+        here_app_id = args.here_app_code
+        here_app_code = args.here_app_code
+        google_api_key = args.google_api_key
 
 
 
